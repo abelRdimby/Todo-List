@@ -89,6 +89,13 @@ h1{
     border-radius: 6px;
     border: none;
 }
+.searchInput:active::target-text{
+    height: 45px;
+    font-size: 18px;
+    padding: 0 15px 0;
+    border-radius: 6px;
+    border: none;
+}
 .searchInput:placeholder-shown{
     font-size: 18px;
     font-family: 'Red Hat Text', sans-serif;
