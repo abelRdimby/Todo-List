@@ -1,0 +1,162 @@
+h1{
+    margin: 0;
+    padding: 0;
+}
+h2{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+svg{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --blue: rgb(32, 136, 255);
+    --white: rgb(255, 255, 255);
+    ---grey: rgb(199, 199, 199);
+    --black: rgb(29, 29, 29);
+    --red: rgb(253, 59, 59);
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color:  var(---grey) ;
+    font-family: 'Red Hat Text', sans-serif;
+}
+.myApp{
+    width: 290px;
+    height: 500px;
+    border-radius: 4px;
+    background-color: var(--white);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.appTitle{
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding-inline: 20px;
+    background-color: var(--blue) ;
+    color: var(--white);
+    width: 100%;
+}
+h1{
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin-inline-start: 30px;
+}
+
+.searchContainer{
+    position: relative;
+    margin-block: 20px;
+    overflow: hidden;
+    border: 2px solid var(---grey);
+    border-radius: 6px;
+}
+.searchIcon {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-color: var(---grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchIcon svg{
+    color: rgb(63, 63, 63);
+    height: 50px;
+    width: 30px;
+}
+.searchInput{
+    height: 45px;
+    font-size: 18px;
+    padding: 0 15px 0;
+    border-radius: 6px;
+    border: none;
+}
+.searchInput:placeholder-shown{
+    font-size: 18px;
+    font-family: 'Red Hat Text', sans-serif;
+}
+
+.listItem{
+    width: 85%;
+    margin-bottom: 20px;
+}
+
+.item{
+    border: 1px solid var(---grey);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.boxIcon{
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.boxIcon a {
+    margin-inline-start: 5px;
+}
+.boxIcon svg{
+    color: var(--red);
+    height: 60px;
+    margin: 0;
+}
+.boxIcon .checkBox{
+    border: var(--red) solid 5px;
+    width: 200px;
+}
+.todoInfo{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(---black);
+}
+.btnClear{
+    padding: 9px 10px;
+    background-color: var(--black);
+    border-radius: 4px;
+    color: var(--white);
+}
+
+.addTodo{
+    position: relative;
+    margin-block: 20px;
+    overflow: hidden;
+    border: 2px solid var(---grey);
+    border-radius: 6px;
+}
+.addBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    height: 100%;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addBtn h2{
+    color: var(--white);
+    font-size: 20px;
+
+}
