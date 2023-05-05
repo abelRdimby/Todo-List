@@ -1,28 +1,60 @@
-const clearBtn = document.getElementById ('clearBtn')
-const findBtn = document.getElementById('findBtn')
-const searchInput = document.getElementById('searchInput')
-const addInput = document.getElementById('addInput')
-const addBtn = document.getElementById('addBtn')
 
-function init() {
-    if (!!(window.localStorage.getItem('todoList'))){
-        todoList = JSON.parse(window.localStorage.getItem(todoList))
-    }else {
-        todoList = [];
+
+function loadDataFromLocalStorage() {
+    if (localStorage.getItem('todoList') === null) {
+        localStorage.setItem('todoList', JSON.stringify([
+            {
+                name: 'Todo 01'
+            },
+            {
+                name: 'Todo 02'
+            },
+            {
+                name: 'Todo 03'
+            },
+        ]));
     }
-    addBtn.addEventListener('click' , saveTodo);
-    showList();
+
+    return JSON.parse(localStorage.getItem('todoList'));
 }
 
-// Initialisation terminer
-
-function showList() {
-    if(!!todoList.lenght) {
-        getLastTodoId();
-        for (var item in todoList)
-        var todo = todoList[item]
-        addTodoToList(todo)
-    }
-    syncEvents();
-    
+function createTodoItemElement(todoItem) {
+    return `
+        <div class="item">
+            <div class="boxIcon">
+                <input class="checkBox" type="checkbox">
+            </div>
+            <div class="todoInfo">
+                <p id="myRendu">${todoItem.name}</p>
+            </div>
+            <div class="boxIcon">
+                <a href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 7l16 0"></path>
+                        <path d="M10 11l0 6"></path>
+                        <path d="M14 11l0 6"></path>
+                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                        </svg>
+                </a>
+            </div>
+        </div> 
+    `
 }
+
+function displayTodoList() {
+    const items = loadDataFromLocalStorage();
+    const listItemContainer = document.getElementsByClassName('listItem')[0];
+    var listItemHtml = "";
+ 
+    for (let i = 0; i < items.length; i++) {
+        listItemHtml += createTodoItemElement(items[i]);        
+    }
+
+    listItemContainer.innerHTML = listItemHtml;
+}
+
+
+
+displayTodoList();

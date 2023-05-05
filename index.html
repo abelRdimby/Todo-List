@@ -31,35 +31,14 @@
             </div>
             <input class="searchInput" id="searchInput" type="text" placeholder="Search todo">
         </div>
-<!-- 
-        <div class="listItem">
-            <div class="item">
-                <div class="boxIcon">
-                    <input class="checkBox" type="checkbox" id="">
-                </div>
-                <div class="todoInfo">
-                    <p>It's a dummy todo item</p>
-                </div>
-                <div class="boxIcon">
-                    <a href="/">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M4 7l16 0"></path>
-                            <path d="M10 11l0 6"></path>
-                            <path d="M14 11l0 6"></path>
-                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
-                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                         </svg>
-                    </a>
-                </div>
-            </div>
 
-            <div class="item">
+        <div class="listItem">
+            <!-- <div class="item">
                 <div class="boxIcon">
                     <input class="checkBox" type="checkbox" name="" id="" checked>
                 </div>
                 <div class="todoInfo">
-                    <p style="color: grey; text-decoration: line-through;">This task is complete</p>
+                    <p id="myRendu"></p>
                 </div>
                 <div class="boxIcon">
                     <a href="/">
@@ -73,9 +52,9 @@
                          </svg>
                     </a>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="item">
+            <!-- <div class="item">
                 <div class="boxIcon">
                     <input class="checkBox" type="checkbox" name="" id="">
                 </div>
@@ -95,22 +74,57 @@
                     </a>
                 </div>
             </div>
-        </div> -->
+            <div class="item">
+                <div class="boxIcon">
+                    <input class="checkBox" type="checkbox">
+                </div>
+                <div class="todoInfo">
+                    <p>Vide</p>
+                </div>
+                <div class="boxIcon">
+                    <a href="/" id="deleteItem" onclick="deleteData()">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 7l16 0"></path>
+                            <path d="M10 11l0 6"></path>
+                            <path d="M14 11l0 6"></path>
+                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                         </svg>
+                    </a>
+                </div>
+            </div> -->
+
+        </div> 
+
         <div class="clearBtn listItem" id="clearBtn">
             <a href="/" class="btnClear">Clear All</a>
         </div>
+
        <div class="footerAddTodo">
         <div class="addTodo ">
             <div class="addBtn">
+                <!-- <button onclick="addData()">
+                    <h2><strong>+</strong>Add</h2>
+                </button> -->
                 <a href="/" id="addBtn">
                     <h2><strong>+</strong>Add</h2>
                 </a>
             </div>
-            <input class="searchInput" id="addInput" type="text" placeholder="Add new todo it">
+            <input class="searchInput" id="inputNewTodo" name="description" type="text" placeholder="Add new todo it">
         </div>
        </div>
 
     </div>
-    
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>
