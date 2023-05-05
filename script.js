@@ -18,9 +18,9 @@ function loadDataFromLocalStorage() {
     return JSON.parse(localStorage.getItem('todoList'));
 }
 
-function createTodoItemElement(todoItem) {
+function createTodoItemElement(todoItem , index) {
     return `
-        <div class="item">
+        <div class="item" id="item-${index}">
             <div class="boxIcon">
                 <input class="checkBox" type="checkbox">
             </div>
@@ -49,7 +49,7 @@ function displayTodoList() {
     var listItemHtml = "";
  
     for (let i = 0; i < items.length; i++) {
-        listItemHtml += createTodoItemElement(items[i]);        
+        listItemHtml += createTodoItemElement(items[i], i);        
     }
 
     listItemContainer.innerHTML = listItemHtml;

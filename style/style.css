@@ -140,6 +140,7 @@ h1{
     font-size: 16px;
     font-weight: 400;
     color: var(---black);
+    width: 100%;
 }
 /* .clearBtn{
     margin-block: 20px;
