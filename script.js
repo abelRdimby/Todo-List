@@ -1,5 +1,3 @@
-
-
 function loadDataFromLocalStorage() {
     if (localStorage.getItem('todoList') === null) {
         localStorage.setItem('todoList', JSON.stringify([
@@ -12,10 +10,20 @@ function loadDataFromLocalStorage() {
             {
                 name: 'Todo 03'
             },
+            {
+                name: 'Todo 04'
+            },
+            {
+                name: 'Todo 05'
+            },
         ]));
     }
 
     return JSON.parse(localStorage.getItem('todoList'));
+}
+
+function persistDataToLocalStorage(data) {
+    localStorage.setItem('todoList', JSON.stringify(data));
 }
 
 function createTodoItemElement(todoItem , index) {
@@ -28,7 +36,7 @@ function createTodoItemElement(todoItem , index) {
                 <p id="myRendu">${todoItem.name}</p>
             </div>
             <div class="boxIcon">
-                <a href="/">
+                <a href="/" class="itemDelete" data-id="${index}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M4 7l16 0"></path>
@@ -53,8 +61,25 @@ function displayTodoList() {
     }
 
     listItemContainer.innerHTML = listItemHtml;
+
+    document.querySelectorAll('.itemDelete').forEach(deleteButton => {
+        deleteButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            deleteItem(deleteButton);
+        });
+    });
 }
 
+function deleteItem(deleteButton) {
+    const index = parseInt(deleteButton.dataset.id);
 
+    var todoList = loadDataFromLocalStorage();
+
+    todoList.splice(index, 1);
+
+    persistDataToLocalStorage(todoList);
+
+    displayTodoList();
+}
 
 displayTodoList();
