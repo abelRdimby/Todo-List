@@ -68,10 +68,12 @@ function displayTodoList() {
             deleteItem(deleteButton);
         });
     });
+
 }
 
 function deleteItem(deleteButton) {
     const index = parseInt(deleteButton.dataset.id);
+    
 
     var todoList = loadDataFromLocalStorage();
 
@@ -80,6 +82,13 @@ function deleteItem(deleteButton) {
     persistDataToLocalStorage(todoList);
 
     displayTodoList();
+}
+
+function clearAll() {
+    console.log(81485)
+    persistDataToLocalStorage([])
+  
+    displayTodoList()
 }
 
 displayTodoList();
