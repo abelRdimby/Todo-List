@@ -83,3 +83,26 @@ function deleteItem(deleteButton) {
 }
 
 displayTodoList();
+
+function isValid() {
+    const newTodo = document.getElementById('inputNewTodo').value;
+    if(newTodo === "") {
+        return false
+    }
+    return true
+}
+
+function addTodo() {
+    if(!isValid()) {
+        alert(".. is not valid")
+        return;
+    }
+
+    const newTodo = document.getElementById('inputNewTodo').value;
+    var todoList = loadDataFromLocalStorage()
+    todoList.push({
+        name:newTodo,
+    })
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+    // console.log(newTodo);
+}
