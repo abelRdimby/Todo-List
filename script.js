@@ -1,3 +1,27 @@
+const searchBar = document.getElementById('searchBar');
+    
+searchBar.addEventListener('keyup', (e) => {
+    const data = loadDataFromLocalStorage();
+    const searchString = e.target.value.toLowerCase();
+    let results = [];
+
+    for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+
+        if (element.name.toLowerCase() === searchString) {
+            results.push(element);
+        }
+    }
+
+    if (results.length !== 0) {
+        displayTodoList(results);
+
+        return;
+    }
+
+    displayTodoList();
+})
+
 function loadDataFromLocalStorage() {
     if (localStorage.getItem('todoList') === null) {
         localStorage.setItem('todoList', JSON.stringify([
@@ -51,8 +75,15 @@ function createTodoItemElement(todoItem , index) {
     `
 }
 
-function displayTodoList() {
-    const items = loadDataFromLocalStorage();
+function displayTodoList(datas = null) {
+    var items = [];
+
+    if (datas === null) {
+        items = loadDataFromLocalStorage();
+    } else {
+        items = datas;
+    }
+
     const listItemContainer = document.getElementsByClassName('listItem')[0];
     var listItemHtml = "";
  
@@ -70,6 +101,7 @@ function displayTodoList() {
     });
 
 }
+displayTodoList()
 
 function deleteItem(deleteButton) {
     const index = parseInt(deleteButton.dataset.id);
@@ -91,15 +123,16 @@ function clearAll() {
     displayTodoList()
 }
 
-displayTodoList();
 
-function isValid() {
+
+function isValid(value) {
     const newTodo = document.getElementById('inputNewTodo').value;
     if(newTodo === "") {
         return false
     }
     return true
 }
+isValid()
 
 function addTodo() {
     if(!isValid()) {
@@ -112,25 +145,6 @@ function addTodo() {
     todoList.push({
         name:newTodo,
     })
-    localStorage.setItem('todoList', JSON.stringify(todoList))
+    persistDataToLocalStorage(todoList);
     // console.log(newTodo);
 }
-
-function searchBar() {
-    let input = document.getElementById('searchBar').value
-    input = input.toLowerCase();
-    const items = loadDataFromLocalStorage();
-    
-      
-    for (i = 0; i < items.length; i++) { 
-        console.log(items.value , input)
-        if (!items[i].innerHTML.toLowerCase().includes(input)) {
-            items[i].style.display="none";
-        }
-        else {
-            items[i].style.display="list-item";                 
-        }
-    }
-}
-
-searchBar()
