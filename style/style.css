@@ -114,6 +114,8 @@ h1{
     align-items: center;
     overflow: hidden;
     margin-block: 20px;
+    margin-inline-start: 0;
+    border-right: 1px solid var(--grey);
 }
 .viewAllItems:hover{
     overflow-y: scroll;
@@ -130,7 +132,7 @@ h1{
 }
 
 .listItem{
-    width: 94%;
+    width: 100%;
     padding: auto;
     margin: auto;
 }
