@@ -115,3 +115,22 @@ function addTodo() {
     localStorage.setItem('todoList', JSON.stringify(todoList))
     // console.log(newTodo);
 }
+
+function searchBar() {
+    let input = document.getElementById('searchBar').value
+    input = input.toLowerCase();
+    const items = loadDataFromLocalStorage();
+    
+      
+    for (i = 0; i < items.length; i++) { 
+        console.log(items.value , input)
+        if (!items[i].innerHTML.toLowerCase().includes(input)) {
+            items[i].style.display="none";
+        }
+        else {
+            items[i].style.display="list-item";                 
+        }
+    }
+}
+
+searchBar()
