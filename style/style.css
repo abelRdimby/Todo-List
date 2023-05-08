@@ -34,6 +34,7 @@ body{
     height: 100vh;
     background-color:  var(--grey) ;
     font-family: 'Red Hat Text', sans-serif;
+    transition: 0.3s all;
 }
 .myApp{
     width: 290px;

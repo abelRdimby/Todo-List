@@ -1,7 +1,7 @@
 const searchBar = document.getElementById('searchBar');
-    
+
 searchBar.addEventListener('keyup', (e) => {
-    const data = loadDataFromLocalStorage();
+    const data = loadDataFromLocalStorage();        
     const searchString = e.target.value.toLowerCase();
     let results = [];
 
@@ -19,8 +19,21 @@ searchBar.addEventListener('keyup', (e) => {
         return;
     }
 
+    setTimeout(() => {
+    const filteredData = data.filter(todo => {
+        return todo.name.toLowerCase().includes(searchString);
+    });
+    displayTodoList(filteredData);
+    }, 300);
+
     displayTodoList();
+
 })
+
+  
+  
+
+  
 
 function loadDataFromLocalStorage() {
     if (localStorage.getItem('todoList') === null) {
@@ -146,5 +159,4 @@ function addTodo() {
         name:newTodo,
     })
     persistDataToLocalStorage(todoList);
-    // console.log(newTodo);
 }
