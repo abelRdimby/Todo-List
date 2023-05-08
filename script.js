@@ -1,3 +1,62 @@
+function loadDataFromLocalStorage() {
+    if (localStorage.getItem('todoList') === null) {
+        localStorage.setItem('todoList', JSON.stringify([
+            {
+                name: 'Todo 01'
+            },
+            {
+                name: 'Todo 02'
+            },
+            {
+                name: 'Todo 03'
+            },
+            {
+                name: 'Todo 04'
+            },
+
+            {
+                name: 'Todo 05'
+            },
+            {
+                name: 'Todo 06'
+            },
+            {
+                name: 'Todo 07'
+            },
+            {
+                name: 'Todo 08'
+            },
+            {
+                name: 'Todo 09'
+            },
+            {
+                name: 'Todo 10'
+            },
+            {
+                name: 'Todo 11'
+            },
+        ]));
+    }
+
+    return JSON.parse(localStorage.getItem('todoList'));
+}
+
+function dataCount() {
+    const data = JSON.parse(localStorage.getItem('todoList'));
+    return data.length
+}
+
+// function whriteItemsCount() {
+//     const count = dataCount()
+//     const resultElement = document.getElementById('resultElement')
+//     resultElement.innerHTML += 'We have ' + count + ' items of todo in our list'
+// }
+
+function persistDataToLocalStorage(data) {
+    localStorage.setItem('todoList', JSON.stringify(data));
+}
+
+// SEARCH BAR
 const searchBar = document.getElementById('searchBar');
 
 searchBar.addEventListener('keyup', (e) => {
@@ -18,51 +77,17 @@ searchBar.addEventListener('keyup', (e) => {
 
         return;
     }
-
+    // DEBOUNCE
     setTimeout(() => {
     const filteredData = data.filter(todo => {
         return todo.name.toLowerCase().includes(searchString);
     });
+    
     displayTodoList(filteredData);
     }, 300);
-
-    displayTodoList();
-
 })
 
-  
-  
-
-  
-
-function loadDataFromLocalStorage() {
-    if (localStorage.getItem('todoList') === null) {
-        localStorage.setItem('todoList', JSON.stringify([
-            {
-                name: 'Todo 01'
-            },
-            {
-                name: 'Todo 02'
-            },
-            {
-                name: 'Todo 03'
-            },
-            {
-                name: 'Todo 04'
-            },
-            {
-                name: 'Todo 05'
-            },
-        ]));
-    }
-
-    return JSON.parse(localStorage.getItem('todoList'));
-}
-
-function persistDataToLocalStorage(data) {
-    localStorage.setItem('todoList', JSON.stringify(data));
-}
-
+// CREATE ITEMS Element
 function createTodoItemElement(todoItem , index) {
     return `
         <div class="item" id="item-${index}">
@@ -88,6 +113,7 @@ function createTodoItemElement(todoItem , index) {
     `
 }
 
+// AFFICHER TOUS LES OBJET DANS LE DOM
 function displayTodoList(datas = null) {
     var items = [];
 

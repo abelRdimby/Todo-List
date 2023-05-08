@@ -35,6 +35,7 @@ body{
     background-color:  var(--grey) ;
     font-family: 'Red Hat Text', sans-serif;
     transition: 0.3s all;
+    overflow: hidden;
 }
 .myApp{
     width: 290px;
@@ -106,20 +107,46 @@ h1{
     font-family: 'Red Hat Text', sans-serif;
 }
 
-.listItem{
+.viewAllItems{
     width: 85%;
+    display: flex;
+    max-height: 202px;
+    align-items: center;
+    overflow: hidden;
     margin-block: 20px;
+}
+.viewAllItems:hover{
+    overflow-y: scroll;
+}
+.viewAllItems::-webkit-scrollbar{
+    width: 5px;
+    background-color: var(--grey);
+    left: 0;
+    border-radius: 30px;
+}
+.viewAllItems::-webkit-scrollbar-thumb{
+    background: white;
+    border-radius: 10px;
+}
+
+.listItem{
+    width: 94%;
+    padding: auto;
+    margin: auto;
 }
 
 .item{
     border: 1px solid var(--grey);
     width: 100%;
+    /* height: 70px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
-.displayNone{
-    display: none;
+.resultTitle{
+    width: 85%;
 }
 
 .boxIcon{
@@ -147,9 +174,10 @@ h1{
     color: var(---black);
     width: 100%;
 }
-/* .clearBtn{
+.clearBtn{
     margin-block: 20px;
-} */
+    width: 85%;
+}
 .btnClear{
     padding: 9px 10px;
     background-color: var(--black);
